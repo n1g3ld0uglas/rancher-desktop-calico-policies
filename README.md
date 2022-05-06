@@ -198,7 +198,8 @@ kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-
 
 
 ## Optional: Connecting to Calico Cloud:
-You can test Calico Cloud for FREE for 14 days via ```calicocloud.io```
+You can test Calico Cloud for FREE for 14 days via ```calicocloud.io``` <br/>
+https://docs.calicocloud.io/get-started/connect/install-cluster
 
 ![Screenshot 2022-05-06 at 12 33 15](https://user-images.githubusercontent.com/82048393/167124630-41c5c828-6acb-4d27-b61f-19605f1a1389.png)
 
@@ -224,3 +225,6 @@ The process is completed when you can see all pods in a ```Ready``` state
 You can now see the allowed and denied traffic per policy in the Calico Cloud web user interface:
 
 ![Screenshot 2022-05-06 at 12 39 37](https://user-images.githubusercontent.com/82048393/167125019-8b7e4268-598f-4f65-acdc-f177c4148ca1.png)
+
+## Creating higher-level security rules in Calico Cloud:
+

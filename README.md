@@ -228,3 +228,13 @@ You can now see the allowed and denied traffic per policy in the Calico Cloud we
 
 ## Creating higher-level security rules in Calico Cloud:
 
+Since we are now making use of the enterprise features, we can create our first tier - ```security``` <br/>
+Policies in the ```security``` tier are read in order of precedence before policies within the ```default``` tier:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/security-tier.yaml
+```
+
+<img width="1199" alt="Screenshot 2022-05-06 at 12 49 10" src="https://user-images.githubusercontent.com/82048393/167126161-f0e2b3f9-0f4e-4ad9-a1e8-461cb46e65aa.png">
+
+

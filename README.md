@@ -52,7 +52,7 @@ vi kind-calico.yaml
 Disable the installation of kindnet
 ```
 kind: Cluster
-apiVersion: kind.sigs.k8s.io/v1alpha3
+apiVersion: kind.x-k8s.io/v1alpha4
 networking:
   disableDefaultCNI: true # disable kindnet
   podSubnet: 192.168.0.0/16 # set to Calico's default subnet

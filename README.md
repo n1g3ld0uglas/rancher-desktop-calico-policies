@@ -198,8 +198,29 @@ kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-
 
 
 ## Optional: Connecting to Calico Cloud:
-You can test Calico Cloud for FREE for 14 days via calicocloud.io
+You can test Calico Cloud for FREE for 14 days via ```calicocloud.io```
 
+![Screenshot 2022-05-06 at 12 33 15](https://user-images.githubusercontent.com/82048393/167124630-41c5c828-6acb-4d27-b61f-19605f1a1389.png)
 
+After you give a name to your cluster, you will run a single line install script:
 
+<img width="1193" alt="Screenshot 2022-05-06 at 12 34 35" src="https://user-images.githubusercontent.com/82048393/167124657-8793d472-193d-44b5-9bfe-5b9a50ee801e.png">
 
+You can follow the progress of the installation via:
+
+```
+kubectl get pods -A -w
+```
+<img width="1193" alt="Screenshot 2022-05-06 at 12 34 46" src="https://user-images.githubusercontent.com/82048393/167124800-cb1c5732-1037-47f3-8447-123ca19beb8b.png">
+
+The entire process can take between 2-4 mins to complete:
+
+<img width="1193" alt="Screenshot 2022-05-06 at 12 35 23" src="https://user-images.githubusercontent.com/82048393/167124852-9981ceb4-02a4-4b88-8e69-e96424f024a6.png">
+
+The process is completed when you can see all pods in a ```Ready``` state
+
+<img width="1193" alt="Screenshot 2022-05-06 at 12 38 54" src="https://user-images.githubusercontent.com/82048393/167124985-6040dfab-c74e-4946-b731-29a9ba975966.png">
+
+You can now see the allowed and denied traffic per policy in the Calico Cloud web user interface:
+
+![Screenshot 2022-05-06 at 12 39 37](https://user-images.githubusercontent.com/82048393/167125019-8b7e4268-598f-4f65-acdc-f177c4148ca1.png)

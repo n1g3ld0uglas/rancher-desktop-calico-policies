@@ -64,14 +64,20 @@ Create your Kind cluster, passing the configuration file using the --config flag
 kind create cluster --config kind-calico.yaml
 ```
 
+<img width="941" alt="Screenshot 2022-05-06 at 11 16 49" src="https://user-images.githubusercontent.com/82048393/167113347-f783ac08-a65e-4da2-b278-ea71d28783d0.png">
+
+
+
 ## Verify Kind Cluster
 
 Once the cluster is up, list the pods in the ```kube-system``` namespace to verify that ```kindnet``` is not running:
 
 ```
-export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
 kubectl get pods -n kube-system
 ```
+
+<img width="941" alt="Screenshot 2022-05-06 at 11 18 45" src="https://user-images.githubusercontent.com/82048393/167113575-2318c196-7760-472e-9877-41b93476b614.png">
+
 
 ```kindnet``` should be missing from the list of pods:
 
@@ -79,3 +85,49 @@ kubectl get pods -n kube-system
 They will remain in the pending state until a CNI plugin is installed.
 
 ## Install Calico CNI
+
+Install the Tigera Calico operator and custom resource definitions.
+```
+kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml
+```
+
+<img width="962" alt="Screenshot 2022-05-06 at 11 20 27" src="https://user-images.githubusercontent.com/82048393/167114358-2cf3587f-39e9-4186-8e1e-e267703ccb83.png">
+
+
+Install Calico by creating the necessary custom resource.
+```
+kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
+```
+
+<img width="962" alt="Screenshot 2022-05-06 at 11 20 45" src="https://user-images.githubusercontent.com/82048393/167114329-61010589-ddd3-4b1f-bafd-d00d17dac224.png">
+
+
+Confirm that all of the pods are running with the following command.
+```
+watch kubectl get pods -n calico-system
+```
+
+Wait until each pod has the ```STATUS``` of ```Running```.
+
+<img width="962" alt="Screenshot 2022-05-06 at 11 21 46" src="https://user-images.githubusercontent.com/82048393/167114314-313d51e5-00d4-4a01-8f9f-8e014615abce.png">
+
+
+Congratulations! You now have an Rancher Desktop cluster running Calico <br/>
+As expected, those coredns pods are now in a ```Running``` state after the CNI install
+
+<img width="962" alt="Screenshot 2022-05-06 at 11 24 45" src="https://user-images.githubusercontent.com/82048393/167114574-6fa160f5-9f6d-4c85-8284-19905cd6d50c.png">
+
+
+## Install a test application (Storefront)
+
+
+```
+kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
+```
+
+Confirm your test application is running:
+```
+kubectl get pods -n storefront
+```
+
+<img width="962" alt="Screenshot 2022-05-06 at 11 27 10" src="https://user-images.githubusercontent.com/82048393/167114891-87fed43a-87bd-4bd8-a67e-d3f8f4d55f82.png">

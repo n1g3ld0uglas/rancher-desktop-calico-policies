@@ -29,9 +29,14 @@ mkdir rancher-desktop
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.12.0/kind-darwin-amd64
 ```
 
+
 ```
 chmod +x ./kind
 ```
+
+<img width="941" alt="Screenshot 2022-05-06 at 11 08 52" src="https://user-images.githubusercontent.com/82048393/167112056-0c9c86d6-16f1-4491-91e6-a74fb360ff93.png">
+
+
 
 ## Disabling Kindnet
 

@@ -237,4 +237,8 @@ kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-
 
 <img width="1199" alt="Screenshot 2022-05-06 at 12 49 10" src="https://user-images.githubusercontent.com/82048393/167126161-f0e2b3f9-0f4e-4ad9-a1e8-461cb46e65aa.png">
 
+You can see this within the Calico Cloud web user interface:
+
+![Screenshot 2022-05-06 at 12 52 15](https://user-images.githubusercontent.com/82048393/167126317-c74ace11-c170-46e4-acd7-8349617b7b17.png)
+
 

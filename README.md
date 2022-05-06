@@ -241,4 +241,27 @@ You can see this within the Calico Cloud web user interface:
 
 ![Screenshot 2022-05-06 at 12 52 15](https://user-images.githubusercontent.com/82048393/167126317-c74ace11-c170-46e4-acd7-8349617b7b17.png)
 
+#### Fix issue with denied packets in zone-based architecture
+
+Our zero-trust policies are designed to only allow traffic between pods based on label schema <br/>
+However, we never factored-in those coredns pods into our security pods. This we can whitelist in the security tier:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/allow-kubedns.yaml
+```
+
+<img width="1200" alt="Screenshot 2022-05-06 at 12 55 54" src="https://user-images.githubusercontent.com/82048393/167127294-c7acaf7d-df23-46ac-bde1-c5ecd679200b.png">
+
+Confirm your Global Network Policy was actually created within the security tier. <br/>
+Again, you can see how the allowed traffic for this newly-created policy in the web UI:
+```
+kubectl get globalnetworkpolicies -l projectcalico.org/tier=security
+```
+
+![Screenshot 2022-05-06 at 12 58 57](https://user-images.githubusercontent.com/82048393/167127472-f2c8e8ed-21fc-4408-bc96-b15ede2db20c.png)
+
+Calico Cloud also comes with full-stack observability, so it's easy to see why the connection was broken <br/>
+Users can drill into the network namespace and find the exact web flow associated with the allowed/denied connection.
+
+![Screenshot 2022-05-06 at 13 01 29](https://user-images.githubusercontent.com/82048393/167127766-7bcb6af7-1608-41e1-a4a7-78813921bc70.png)
 

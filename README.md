@@ -158,8 +158,18 @@ kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/trusted.yaml
 ```
 
+<img width="1167" alt="Screenshot 2022-05-06 at 11 59 23" src="https://user-images.githubusercontent.com/82048393/167119339-b4fbd596-11c9-4e94-b368-b593293bf056.png">
+
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/restricted.yaml
 ```
+
+<img width="1179" alt="Screenshot 2022-05-06 at 12 01 28" src="https://user-images.githubusercontent.com/82048393/167119567-8a967705-f45f-465a-8680-a598f4610b3b.png">
+
+## Optional: Connecting to Calico Cloud:
+You can test Calico Cloud for FREE for 14 days via calicocloud.io
+
+
+
 

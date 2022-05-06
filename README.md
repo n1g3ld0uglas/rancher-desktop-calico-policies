@@ -147,9 +147,20 @@ kubectl get pods -n storefront --show-labels
 
 ## Creating your first network policies
 
-Explain zone-based architecture ....
+As a best practice, we will implement a zone-based architecture via Calico's Networking & Security Policies <br/>
+Using a zone-based firewall approach allows us to apply the said security policies to the security zones instead of the pods <br/>
+Then, the labelled pods are set as members of the different zones - if they are not in a correct zone, the packets will be dropped.
+
+![container-firewall](https://user-images.githubusercontent.com/82048393/167121017-0e9a68c9-0c50-4063-b211-cfb3c843f866.png)
+
 
 #### Demilitarized Zone (DMZ) Policy
+
+The following example allows ```Ingress``` traffic from the public internet CIDR net ```18.0.0.0/16``` <br/>
+All other Ingress-related traffic will be ```Denied``` - this includes traffic sent to the DMZ from pods within the cluster. <br/>
+<br/>
+It's important to note that the ```DMZ``` labelled pods can ```Egress``` out to the pods within the ```Trusted``` zone, or if it has a label of ```app=logging``` <br/>
+All other outbound traffic from ```DMZ``` zone will be dropped as part of this zero-trust initiative.
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/dmz.yaml

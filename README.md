@@ -84,6 +84,8 @@ kubectl get pods -n kube-system
 ```Note:``` The coredns pods are in the ```pending``` state. This is expected. <br/>
 They will remain in the pending state until a CNI plugin is installed.
 
+
+
 ## Install Calico CNI
 
 Install the Tigera Calico operator and custom resource definitions.

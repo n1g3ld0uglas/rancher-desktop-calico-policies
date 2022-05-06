@@ -122,7 +122,7 @@ As expected, those coredns pods are now in a ```Running``` state after the CNI i
 
 ## Install a test application (Storefront)
 
-
+We provided a deployment file for creating your test application
 ```
 kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
 ```
@@ -133,3 +133,33 @@ kubectl get pods -n storefront
 ```
 
 <img width="962" alt="Screenshot 2022-05-06 at 11 27 10" src="https://user-images.githubusercontent.com/82048393/167114891-87fed43a-87bd-4bd8-a67e-d3f8f4d55f82.png">
+
+Due to the ephemeral nature of Kubernetes, the IP address of a pod is not long lived. <br/>
+As a result, it makes more sense for us to target pods based on a consistent label schema (not based on IP address):
+
+<img width="1135" alt="Screenshot 2022-05-06 at 11 52 01" src="https://user-images.githubusercontent.com/82048393/167118571-fda5c06e-224e-4a16-a0c0-e22ec82e3697.png">
+
+To see the label schema associated with your storefront pods, run the below command:
+```
+kubectl get pods -n storefront --show-labels
+```
+
+
+## Creating your first network policies
+
+Explain zone-based architecture ....
+
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/dmz.yaml
+```
+<img width="1135" alt="Screenshot 2022-05-06 at 11 49 04" src="https://user-images.githubusercontent.com/82048393/167117911-83a788bf-c0d5-4433-abd9-dcea98eac8d5.png">
+
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/trusted.yaml
+```
+
+
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/restricted.yaml
+```
+

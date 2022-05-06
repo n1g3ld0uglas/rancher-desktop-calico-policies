@@ -1,5 +1,18 @@
-# rancher-desktop-calico-policies
+# How to run Calico Network Policies on Rancher Desktop
 
+Rancher Desktop is an open-source desktop application for Mac, Windows and Linux. It's created and maintained by the team at SUSE <br/>
+Rancher Desktop runs Kubernetes and container management on your desktop. You can choose the version of Kubernetes you want to run. <br/>
+<br/>
+You can build, push, pull, and run container images using either containerd or Moby (dockerd). <br/>
+The container images you build can be run by Kubernetes immediately without the need for a registry.
+
+## How to install Rancher Desktop
+Installation is rather simple. Go to ```rancherdesktop.io``` for the list of installers. Once downloaded, follow the steps in the wizard. <br/>
+Rancher Desktop is an electron-based application that wraps other tools while itself providing the user experience to create a simple experience. <br/>
+
+![Screenshot 2022-05-06 at 13 09 23](https://user-images.githubusercontent.com/82048393/167128675-d77f6124-8f04-45f7-8756-4b928899b326.png)
+
+## Open Rancher Desktop for the first time
 I avoided using the built-in Kubernetes component of Rancher Desktop. <br/>
 I unchecked this option and switched the container runtime from ```containerd``` to ```dockerd```:
 

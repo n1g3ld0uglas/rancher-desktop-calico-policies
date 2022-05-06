@@ -149,10 +149,14 @@ kubectl get pods -n storefront --show-labels
 
 Explain zone-based architecture ....
 
+#### Demilitarized Zone (DMZ) Policy
+
 ```
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/dmz.yaml
 ```
 <img width="1135" alt="Screenshot 2022-05-06 at 11 49 04" src="https://user-images.githubusercontent.com/82048393/167117911-83a788bf-c0d5-4433-abd9-dcea98eac8d5.png">
+
+#### Trusted Zone Policy
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/trusted.yaml
@@ -160,12 +164,27 @@ kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-
 
 <img width="1167" alt="Screenshot 2022-05-06 at 11 59 23" src="https://user-images.githubusercontent.com/82048393/167119339-b4fbd596-11c9-4e94-b368-b593293bf056.png">
 
+#### Restricted Zone Policy
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/restricted.yaml
 ```
 
 <img width="1179" alt="Screenshot 2022-05-06 at 12 01 28" src="https://user-images.githubusercontent.com/82048393/167119567-8a967705-f45f-465a-8680-a598f4610b3b.png">
+
+#### Default-Deny Policy
+
+And finally, to absolutely ensure zero-trust workload security is implemented for the storefront namespace, we create a default-deny policy <br/>
+Default deny policy ensures pods without policy (or incorrect policy) are not allowed traffic until appropriate network policy is defined. <br/>
+https://projectcalico.docs.tigera.io/security/kubernetes-default-deny
+
+
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-desktop-calico-policies/main/default-deny.yaml
+```
+
+<img width="1186" alt="Screenshot 2022-05-06 at 12 06 18" src="https://user-images.githubusercontent.com/82048393/167120572-d87298cb-7024-4765-a2e9-1c823b0ce1a5.png">
+
 
 ## Optional: Connecting to Calico Cloud:
 You can test Calico Cloud for FREE for 14 days via calicocloud.io

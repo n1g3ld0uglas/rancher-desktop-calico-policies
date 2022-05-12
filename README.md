@@ -9,7 +9,8 @@ You can build, push, pull, and run container images using either containerd or M
 The container images you build can be run by Kubernetes immediately without the need for a registry.
 
 ## How to install Rancher Desktop
-Installation is rather simple. Go to ```rancherdesktop.io``` for the list of installers. Once downloaded, follow the steps in the wizard. <br/>
+Installation is rather simple. Go to ```rancherdesktop.io``` for the list of installers. <br/> 
+Once downloaded, follow the steps in the wizard. <br/>
 Rancher Desktop is an electron-based application that wraps other tools while itself providing the user experience to create a simple experience. <br/>
 
 ![Screenshot 2022-05-06 at 13 09 23](https://user-images.githubusercontent.com/82048393/167128675-d77f6124-8f04-45f7-8756-4b928899b326.png)
